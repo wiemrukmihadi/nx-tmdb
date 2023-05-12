@@ -1,8 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 
+const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 const searchMovies = async (query: string) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=796b78a940cdb3ba4ac81d7d423b34a6&query=${query}`
+    `${apiUrl}search/movie?api_key=${apiKey}&query=${query}`
   );
   const data = await response.json();
   return data;

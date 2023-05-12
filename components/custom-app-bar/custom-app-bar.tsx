@@ -171,13 +171,13 @@ export function CustomAppBar({ onSearchResult }: CustomAppBarProps) {
     if (query) {
       refetch();
     }
-  }, [query]);
+  }, [query, refetch]);
 
   React.useEffect(() => {
     if (data) {
       onSearchResult(data);
     }
-  }, [data]);
+  }, [data, onSearchResult]);
 
   // give delay after user finish typing.
   const _debouncedOnChangeKeyword = debounce(_onChangeSearch, 750);

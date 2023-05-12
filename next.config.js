@@ -12,6 +12,17 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  swcMinify: true,
+  optimizeFonts: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'themoviedb.org',
+      },
+    ],
+    minimumCacheTTL: 1500000,
+  },
 };
 
 const plugins = [

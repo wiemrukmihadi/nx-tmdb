@@ -11,7 +11,18 @@ export interface MainProps {
 }
 export function Main(props: MainProps) {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
-  const cols = isSmallScreen ? 1 : 5;
+  const isMediumScreen = useMediaQuery('(max-width:1200px)');
+
+  const cols = () => {
+    if (isSmallScreen) {
+      return 1;
+    }
+    if (isMediumScreen) {
+      return 3;
+    }
+    return 5;
+  };
+  // const cols = isMediumScreen ? 2 : 5;
   const [listData, setListData] = React.useState<Movie[]>([]);
 
   const { isLoading, data } = useQueryMovie();
@@ -33,8 +44,8 @@ export function Main(props: MainProps) {
   return (
     <Box sx={{ m: '12px' }}>
       <ImageList
-        cols={cols}
-        rowHeight={160}
+        cols={cols()}
+        // rowHeight={160}
         sx={{
           mb: 8,
           gridTemplateColumns:

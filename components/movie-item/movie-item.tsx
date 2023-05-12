@@ -8,6 +8,7 @@ import {
   Tooltip,
 } from '@mui/material';
 import { Movie } from 'Interfaces';
+import Image from 'next/image';
 
 /* eslint-disable-next-line */
 export interface MovieItemProps {
@@ -34,6 +35,12 @@ export function MovieItem(props: MovieItemProps) {
             </Tooltip>
           }
         ></ImageListItemBar>
+        {/* <Image
+          src={`https://themoviedb.org/t/p/w300_and_h450_face${props.item.backdrop_path}`}
+          alt={props.item.title}
+          width={300}
+          height={450}
+        /> */}
         <img
           src={`https://www.themoviedb.org/t/p/w300_and_h450_face${props.item.backdrop_path}`}
           srcSet={`https://www.themoviedb.org/t/p/w300_and_h450_face${props.item.backdrop_path}`}
